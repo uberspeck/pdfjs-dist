@@ -118,7 +118,7 @@ var _pdfjsLib = __w_pdfjs_require__(1);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var CSS_UNITS = 96.0 / 72.0;
-var DEFAULT_SCALE_VALUE = 'auto';
+var DEFAULT_SCALE_VALUE = 'page-width';
 var DEFAULT_SCALE = 1.0;
 var MIN_SCALE = 0.10;
 var MAX_SCALE = 10.0;
@@ -1995,6 +1995,7 @@ var PDFPageView = function () {
       canvasWrapper.style.width = div.style.width;
       canvasWrapper.style.height = div.style.height;
       canvasWrapper.classList.add('canvasWrapper');
+      canvasWrapper.oncontextmenu = function() {return false;}
       if (this.annotationLayer && this.annotationLayer.div) {
         div.insertBefore(canvasWrapper, this.annotationLayer.div);
       } else {
@@ -2006,6 +2007,7 @@ var PDFPageView = function () {
         textLayerDiv.className = 'textLayer';
         textLayerDiv.style.width = canvasWrapper.style.width;
         textLayerDiv.style.height = canvasWrapper.style.height;
+        textLayerDiv.oncontextmenu = function(evt) {return false};
         if (this.annotationLayer && this.annotationLayer.div) {
           div.insertBefore(textLayerDiv, this.annotationLayer.div);
         } else {

@@ -334,3 +334,22 @@
   margin-bottom: 100%;
   border: 0;
 }
+
+#presentationMode,
+#download,
+#openFile,
+#print,
+#viewBookmark,
+#pageRotateCw,
+#contextPageRotateCw,
+#secondaryToolbarToggle,
+#sidebarToggle {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+@media print {
+  .textLayer, .canvasWrapper {
+    display: none;
+  }
+}
